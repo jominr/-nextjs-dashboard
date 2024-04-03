@@ -13,6 +13,8 @@ export default function Search({ placeholder }: { placeholder: string }) {
     console.log(`Searching... ${term}`);
     // 标准API，js天生就有的，创建一个searchParams对象实例出来，隐藏的searchParams.toString()
     const params = new URLSearchParams(searchParams);
+    // 每次查询发生变化时，都要把page重置为1
+    params.set('page', '1');
     if (term) {
       params.set('query', term);
     } else {
