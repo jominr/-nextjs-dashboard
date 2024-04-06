@@ -1,4 +1,5 @@
 'use client';
+// 使用了useFormState, useFormStatus两个钩子，所以这里用use client. 
 
 import { lusitana } from '@/app/ui/fonts';
 import {
@@ -12,6 +13,7 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 
 export default function LoginForm() {
+  // 默认值undefined，errorMessage是错误信息，dispatch是处理后的action
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   return (
     <form action={dispatch} className="space-y-3">
@@ -80,6 +82,7 @@ export default function LoginForm() {
 }
 
 function LoginButton() {
+  // 给button按钮添加pending状态
   const { pending } = useFormStatus();
   return (
     <Button className="mt-4 w-full" aria-disabled={pending}>

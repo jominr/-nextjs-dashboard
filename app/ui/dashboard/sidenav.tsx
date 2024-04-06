@@ -20,6 +20,7 @@ export default function SideNav() {
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
         <form
           action={async ()=> {
+            // 直接写action函数
             'use server';
             await signOut();
           }}

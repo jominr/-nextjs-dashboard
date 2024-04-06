@@ -110,14 +110,16 @@ export async function deleteInvoice(id: string) {
   revalidatePath('/dashboard.invoices');
 }
 
-
+// 登录页的action, 
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData,
 ) {
   try {
+    // signIn这里选用的是credentials方式。账号密码。
     await signIn('credentials', formData);
   } catch (error) {
+    // 验证失败的错误
     if (error instanceof AuthError) {
       switch (error.type) {
         case 'CredentialsSignin':
