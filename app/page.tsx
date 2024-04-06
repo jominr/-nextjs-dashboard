@@ -4,6 +4,17 @@ import Link from 'next/link';
 import styles from '@/app/ui/home.module.css'; // 导入modules
 import { lusitana } from '@/app/ui/fonts'
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Acme Dashboard',
+    default: 'Acme Dashboard',
+  },
+  description: 'The official Next.js Learn Dashboard built with App Router.',
+  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+};
+
 
 export default function Page() {
   return (
